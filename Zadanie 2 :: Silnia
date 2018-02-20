@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Zadanie2Silnia
+{
+    /*
+     * Napisz program, który dla podanej przez użytkownika liczby z przedziału <1,10> wyliczy silnię.
+     */
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int l1, silnia = 1;
+
+            while (true)
+            {
+                Console.WriteLine("Podaj liczbę całkowitą z przedziału <1,10>.");
+                if (int.TryParse(Console.ReadLine(), out l1) == true && (l1 < 11) && (l1 > 0))
+                    break;
+            }
+
+            for (int i = 1; i <= l1; i++)
+            {
+                silnia *= i;
+            }
+
+            Console.WriteLine("Silnia liczby {0} to {1}.", l1, silnia);
+
+        }
+    }
+}
+
