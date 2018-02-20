@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Kalkulator
+{
+    /*
+     Zadanie 4.
+     Napisz program kalkulator, który wykona podane przez użytkownika działanie arytmetyczne(+, -, *, /) na dwóch liczbach.
+     Usprawnij kalkulator tak, aby działał dopóki użytkownik zamiast działania nie poda komendy koniec.
+     */
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool zakoncz = false;
+            while (zakoncz == false)
+            {
+                int l1, l2;
+                do
+                {
+                    Console.WriteLine("Podaj liczbę 1: ");
+                    if (int.TryParse(Console.ReadLine(), out l1) == true) break;
+                } while (true);
+
+                while (true)
+                {
+                    Console.WriteLine("Podaj liczbę 2: ");
+                    if (int.TryParse(Console.ReadLine(), out l2) == true) break;
+                }
+
+                var wynik = 0;
+                Console.WriteLine("Wybierz operator *, /, + lub -.");
+
+                switch (Console.ReadLine())
+                {
+                    case "+":
+                        wynik = l1 + l2;
+                        Console.WriteLine("Wynik to: {0}", wynik);
+                        break;
+                    case "-":
+                        wynik = l1 - l2;
+                        Console.WriteLine("Wynik to: {0}", wynik);
+                        break;
+                    case "*":
+                        wynik = l1 * l2;
+                        Console.WriteLine("Wynik to: {0}", wynik);
+                        break;
+                    case "/":
+                        wynik = l1 / l2;
+                        Console.WriteLine("Wynik to: {0}", wynik);
+                        break;
+                    case "koniec":
+                        zakoncz = true;
+                        Console.WriteLine("Wybierz dowolny klawisz aby zakończyć.");
+                        Console.ReadKey();
+                        break;
+                    default:
+                        Console.WriteLine("Wprowadzono niepoprawny znak.");
+                        Console.WriteLine("Spróbuj ponownie.");
+                        break;
+                }
+            }
+        }
+    }
+}
