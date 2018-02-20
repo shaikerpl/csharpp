@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProstokatZGwiazdek
+{
+    class Program
+    {
+        static int Sprawdzenie(string info)
+        {
+            int liczba;
+            do
+            {
+                Console.WriteLine(info);
+            } while (int.TryParse(Console.ReadLine(), out liczba) == false);
+
+            return liczba;
+       
+        }
+        static void Main(string[] args)
+        {
+            int x, y;
+            Console.WriteLine("x - szerokość; y - wysokość");
+            x = Sprawdzenie("Wprowadź wartość x");
+            y = Sprawdzenie("Wprowadź wartość y");
+
+            for (int i = 0; i <=x ; i++)
+            {
+                for (int z = 0; z <= y; z++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine("*");
+            }
+
+        }
+    }
+}
