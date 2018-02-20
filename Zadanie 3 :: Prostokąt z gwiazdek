@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProstokatZGwiazdek
+namespace ConsoleApp23
 {
     class Program
     {
@@ -26,13 +26,13 @@ namespace ProstokatZGwiazdek
             x = Sprawdzenie("Wprowadź wartość x");
             y = Sprawdzenie("Wprowadź wartość y");
 
-            for (int i = 0; i <=x ; i++)
+            for (int i = 1; i <=x ; i++)
             {
-                for (int z = 0; z <= y; z++)
+                for (int z = 1; z <= y; z++)
                 {
                     Console.Write("*");
                 }
-                Console.WriteLine("*");
+                Console.WriteLine("");
             }
 
         }
