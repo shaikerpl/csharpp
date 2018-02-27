@@ -1,0 +1,37 @@
+/*Zadanie 4
+Napisać program obliczania sumy cyfr rozwinięcia dziesiętnego dla zadanej liczby naturalnej*/
+
+namespace SumaCyfr
+{
+    class Program
+    {
+        static uint wczytajLiczbe(string komunikat)
+        {
+            uint wczytanaLiczba;
+            do
+            {
+                Console.WriteLine(komunikat);
+            } while (uint.TryParse(Console.ReadLine(), out wczytanaLiczba) == false);
+            return wczytanaLiczba;
+        }
+        static uint liczSume(uint a)
+        {
+            uint sumaLiczb = 0;
+            while (a != 0)
+            {
+                sumaLiczb += a % 10;
+                a = a / 10;
+            }
+            return sumaLiczb;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Program obliczający sumę cyfr rozwinięcia dziesiętnego.");
+            uint liczba = wczytajLiczbe("Wprowadź liczbę: ");
+            var wynik = liczSume(liczba);
+            Console.WriteLine("Suma cyfr rozwinięcia wynosi {0}", wynik);
+            Console.WriteLine("\n\n\nWprowadź dowolny klawisz, aby zakończyć działanie programu.");
+            Console.ReadKey();
+        }
+    }
+}
