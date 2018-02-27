@@ -1,0 +1,41 @@
+/*Zadanie 4
+Napisać program obliczania największego wspólnego dzielnika dwóch dodatnich liczb całkowitych.Wykorzystaćalgorytm
+ Euklidesa nie używając operacji dzielenia.*/
+
+namespace AlgorytmEuklidesa
+{
+    class Program
+    {
+        static int wczytajLiczbe(string komunikat)
+        {
+            int wczytanaLiczba;
+            do
+            {
+                Console.WriteLine(komunikat);
+            } while (int.TryParse(Console.ReadLine(), out wczytanaLiczba) == false);
+            return wczytanaLiczba;
+        }
+        static int algorytmEuklidesa(int a, int b)
+        {
+            while (a != b)
+            {
+                if (a > b)
+                    a -= b;
+                else
+                    b -= a;
+            }
+            return a;
+        }
+        static void Main(string[] args)
+        {
+            int nwd;
+            Console.WriteLine("Program obliczający największy wspólny dzielnik.");
+            int liczba1 = wczytajLiczbe("Wprowadź liczbę 1: ");
+            int liczba2 = wczytajLiczbe("Wprowadź liczbę 2: ");
+            nwd = algorytmEuklidesa(liczba1, liczba2);
+            Console.WriteLine("Największy wspólny dzielnik liczb {0} i {1} to {2}", liczba1, liczba2, nwd);
+            Console.WriteLine("\n\n\nWprowadź dowolny klawisz, aby zakończyć działanie programu.");
+            Console.ReadKey();
+        }
+    }
+}
