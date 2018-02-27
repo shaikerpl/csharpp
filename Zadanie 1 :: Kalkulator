@@ -10,31 +10,29 @@ namespace Kalkulator
      Zadanie 4.
      Napisz program kalkulator, który wykona podane przez użytkownika działanie arytmetyczne(+, -, *, /) na dwóch liczbach.
      Usprawnij kalkulator tak, aby działał dopóki użytkownik zamiast działania nie poda komendy koniec.
+     /Update 27.02.17/
      */
 
     class Program
     {
+        static int wczytajLiczbe(string komunikat)
+        {
+            int liczba;
+            do
+            {
+                Console.WriteLine(komunikat);
+            } while (int.TryParse(Console.ReadLine(), out liczba) ==false);
+            return liczba;
+        }
         static void Main(string[] args)
         {
             bool zakoncz = false;
             while (zakoncz == false)
             {
-                int l1, l2;
-                do
-                {
-                    Console.WriteLine("Podaj liczbę 1: ");
-                    if (int.TryParse(Console.ReadLine(), out l1) == true) break;
-                } while (true);
-
-                while (true)
-                {
-                    Console.WriteLine("Podaj liczbę 2: ");
-                    if (int.TryParse(Console.ReadLine(), out l2) == true) break;
-                }
-
                 var wynik = 0;
+                int l1 = wczytajLiczbe("Wprowadź liczbę 1: ");
+                int l2 = wczytajLiczbe("Wprowadź liczbę 2: ");
                 Console.WriteLine("Wybierz operator *, /, + lub -.");
-
                 switch (Console.ReadLine())
                 {
                     case "+":
